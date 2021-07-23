@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import { OrangeFont } from "./constants";
+
+import Logo from "./Logo";
+import Spacer from "./Spacer";
+import Paragraph, { SpecialParagraph, HoverParagraph } from "./Paragraph";
+
+const StyledApp = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledApp>
+      <Spacer size="large" />
+      <Logo fontSize="large" />
+      <Spacer />
+      <Logo fontSize="small" color={OrangeFont} />
+      <Spacer size="small" />
+      <Paragraph>This is a normal paragraph</Paragraph>
+      <Spacer />
+      <SpecialParagraph>
+        This is a special paragraph with overriden styles
+      </SpecialParagraph>
+      <Spacer />
+      <HoverParagraph>Hover over me!</HoverParagraph>
+    </StyledApp>
   );
 }
 
